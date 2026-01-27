@@ -1,5 +1,6 @@
 using SixLabors.Fonts;
 using SixLabors.ImageSharp.TableGenerator.Models;
+using SixLabors.ImageSharp.TableGenerator.Rendering;
 
 namespace SixLabors.ImageSharp.TableGenerator.Layout;
 
@@ -324,14 +325,6 @@ internal static class LayoutEngine
         var fontSize = style.FontSize ?? 12f;
         var fontStyle = style.FontStyle ?? SixLabors.Fonts.FontStyle.Regular;
 
-        try
-        {
-            return SystemFonts.CreateFont(fontFamily, fontSize, fontStyle);
-        }
-        catch
-        {
-            // Fallback to a default system font
-            return SystemFonts.CreateFont("Arial", fontSize, fontStyle);
-        }
+        return FontCache.GetFont(fontFamily, fontSize, fontStyle);
     }
 }
