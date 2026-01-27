@@ -1,38 +1,29 @@
 # SixLabors.ImageSharp.TableGenerator
 
-A comprehensive table rendering library for SixLabors.ImageSharp that generates table images with an HTML/CSS-inspired fluent API.
+[![NuGet](https://img.shields.io/nuget/v/SixLabors.ImageSharp.TableGenerator.svg)](https://www.nuget.org/packages/SixLabors.ImageSharp.TableGenerator/)
+[![License: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
+[![.NET](https://img.shields.io/badge/.NET-10.0-purple.svg)](https://dotnet.microsoft.com/)
 
-## Features
+A powerful table rendering library for **SixLabors.ImageSharp** that generates beautiful table images with an HTML/CSS-inspired fluent API.
 
-- **Fluent API**: HTML/CSS-inspired builder pattern for easy table construction
-- **Comprehensive Styling**: Support for backgrounds, borders, fonts, padding, and text alignment
-- **Advanced Layout**: Row/column spans, fixed and auto-sizing columns, text wrapping
-- **Section Support**: Header, body, and footer sections with independent styling
-- **Alternating Rows**: Built-in support for zebra-striped tables
-- **Text Alignment**: Horizontal (left, center, right) and vertical (top, middle, bottom) alignment
-- **Responsive Design**: Automatic column width calculation with max-width constraints
+## ✨ Features
 
-## Installation
+- 🎨 **Rich Styling** - Full control over colors, borders, fonts, padding, and alignment
+- 📊 **Advanced Layout** - Row/column spans, auto-sizing columns, text wrapping
+- 🎯 **CSS-Like API** - Familiar fluent API with style cascading
+- 📑 **Section Support** - Header, body, and footer sections
+- 🦓 **Zebra Striping** - Built-in alternating row styles
+- ⚡ **High Performance** - Font caching and optimized rendering
 
-Add the NuGet package to your project (when published):
+## 📦 Installation
 
-```bash
+\`\`\`bash
 dotnet add package SixLabors.ImageSharp.TableGenerator
-```
+\`\`\`
 
-For now, you can reference the project directly or build it locally.
+## 🚀 Quick Start
 
-## Dependencies
-
-- **SixLabors.ImageSharp** (3.1.7+): Core image processing
-- **SixLabors.ImageSharp.Drawing** (2.1.5+): Drawing and text rendering
-- **SixLabors.Fonts** (2.0.8+): Font loading and text measurement
-
-## Quick Start
-
-### Basic Table
-
-```csharp
+\`\`\`csharp
 using SixLabors.ImageSharp.TableGenerator;
 using SixLabors.ImageSharp.TableGenerator.Builders;
 
@@ -40,305 +31,132 @@ var table = TableBuilder.Create()
     .Body(body => body
         .Row("Name", "Age", "City")
         .Row("John Doe", "30", "New York")
-        .Row("Jane Smith", "25", "Los Angeles")
-        .Row("Bob Johnson", "35", "Chicago"))
+        .Row("Jane Smith", "25", "Los Angeles"))
     .Build();
 
 var image = table.Render();
-image.SaveAsPng("basic_table.png");
-```
+image.SaveAsPng("table.png");
+\`\`\`
 
-### Styled Table with Header
+![Basic Table](SixLabors.ImageSharp.TableGenerator.Examples/output/basic_table.png)
 
-```csharp
+## 📸 Style Showcase
+
+### Condensed | Cozy | Roomy
+![Condensed](SixLabors.ImageSharp.TableGenerator.Examples/output/example-condensed-style.png)
+![Cozy](SixLabors.ImageSharp.TableGenerator.Examples/output/example-cozy-style.png)
+![Roomy](SixLabors.ImageSharp.TableGenerator.Examples/output/example-roomy-style.png)
+
+### Minimalist | Dark Mode
+![Minimalist](SixLabors.ImageSharp.TableGenerator.Examples/output/example-minimalist-style.png)
+![Dark Mode](SixLabors.ImageSharp.TableGenerator.Examples/output/example-dark-mode-style.png)
+
+## 💼 Real-World Examples
+
+### Financial Data with Color-Coded Values
+![Stock Market](SixLabors.ImageSharp.TableGenerator.Examples/output/example-stock-market-large.png)
+
+### Analytics Dashboard with Footer Totals
+![Analytics](SixLabors.ImageSharp.TableGenerator.Examples/output/example-analytics-dashboard.png)
+
+## 📚 Examples
+
+### Styled Table
+\`\`\`csharp
 var table = TableBuilder.Create()
     .DefaultFont("Arial", 14)
     .CellPadding(12)
     .Border(2)
-    .Style(s => s
-        .Background("#f8f9fa")
-        .BorderColor("#dee2e6"))
+    .Style(s => s.Background("#f8f9fa").BorderColor("#dee2e6"))
     .Header(header => header
         .Style(s => s.Background("#007bff").TextColor("#ffffff").Bold())
         .Row("Product", "Price", "Stock"))
     .Body(body => body
         .Row("Laptop", "$999", "15")
-        .Row("Mouse", "$25", "50")
-        .Row("Keyboard", "$75", "30"))
+        .Row("Mouse", "$25", "50"))
     .Build();
+\`\`\`
 
-var image = table.Render();
-image.SaveAsPng("styled_table.png");
-```
+![Styled](SixLabors.ImageSharp.TableGenerator.Examples/output/styled_table.png)
 
-### Alternating Row Colors
-
-```csharp
+### Alternating Rows
+\`\`\`csharp
 var table = TableBuilder.Create()
-    .Header(header => header
-        .Style(s => s.Background("#343a40").TextColor("#ffffff"))
-        .Row("ID", "Name", "Department", "Salary"))
     .Body(body => body
-        .Row("001", "Alice Johnson", "Engineering", "$75,000")
-        .Row("002", "Bob Smith", "Marketing", "$65,000")
-        .Row("003", "Carol Davis", "Engineering", "$80,000"))
+        .Row("001", "Alice", "Engineering", "$75,000")
+        .Row("002", "Bob", "Marketing", "$65,000"))
     .AlternateRows(
         even => even.Background("#ffffff"),
         odd => odd.Background("#f8f9fa"))
     .Build();
+\`\`\`
 
-var image = table.Render();
-image.SaveAsPng("alternating_table.png");
-```
+![Alternating](SixLabors.ImageSharp.TableGenerator.Examples/output/alternating_rows_table.png)
 
-### Table with Spans
-
-```csharp
+### Column Spans
+\`\`\`csharp
 var table = TableBuilder.Create()
     .Body(body => body
         .Row(row => row
-            .Cell("Q1 Sales Report", cell => cell.ColSpan(3).Style(s => s.Background("#e9ecef").Bold())))
-        .Row("Month", "Revenue", "Growth")
-        .Row("January", "$10,000", "+5%")
-        .Row("February", "$12,000", "+20%"))
+            .Cell("Q1 Report", cell => cell.ColSpan(3).Style(s => s.Bold())))
+        .Row("Month", "Revenue", "Growth"))
     .Build();
-```
+\`\`\`
 
-### Column Configuration
+![Spans](SixLabors.ImageSharp.TableGenerator.Examples/output/spans_table.png)
 
-```csharp
-var table = TableBuilder.Create()
-    .Columns(cols => cols
-        .Fixed(100)    // Fixed width column
-        .Auto()        // Auto-sizing column
-        .Fixed(150))   // Another fixed width column
-    .Width(800)        // Maximum table width
-    .Body(body => body
-        .Row("Fixed 100px", "Auto-sized", "Fixed 150px")
-        .Row("Short", "This is a longer text that will wrap", "Medium"))
-    .Build();
-```
-
-## API Reference
+## 🎯 API Reference
 
 ### TableBuilder
-
-Main entry point for creating tables:
-
-- `Create()`: Creates a new table builder
-- `DefaultFont(family, size)`: Sets default font
-- `CellPadding(padding)`: Sets default cell padding
-- `Border(width)`: Sets default border width
-- `Width(maxWidth)`: Sets maximum table width
-- `Columns(configure)`: Configures column specifications
-- `Header/Body/Footer(configure)`: Configures table sections
-- `AlternateRows(evenStyle, oddStyle)`: Applies alternating row styles
-- `Style(configure)`: Applies table-level styling
-- `Build()`: Creates the Table instance
+- \`Create()\` - Start building a table
+- \`DefaultFont(family, size)\` - Set default font
+- \`CellPadding(padding)\` - Set cell padding
+- \`Border(width)\` - Set border width
+- \`Width(maxWidth)\` - Set maximum width
+- \`Header/Body/Footer(configure)\` - Configure sections
+- \`AlternateRows(even, odd)\` - Zebra striping
+- \`Style(configure)\` - Apply styles
 
 ### StyleBuilder
-
-Configures styling for table elements:
-
-- `Background(color)`: Sets background color (hex or Color)
-- `TextColor(color)`: Sets text color
-- `BorderColor(color)`: Sets border color
-- `Border(width)`: Sets border width for all sides
-- `BorderTop/Right/Bottom/Left(width)`: Sets individual border widths
-- `FontFamily(name)`: Sets font family
-- `FontSize(size)`: Sets font size
-- `Bold()`: Makes text bold
-- `Italic()`: Makes text italic
-- `HAlign(alignment)`: Sets horizontal alignment
-- `VAlign(alignment)`: Sets vertical alignment
-- `Padding(padding)`: Sets cell padding
+- \`Background(color)\` / \`TextColor(color)\` / \`BorderColor(color)\`
+- \`Border(width)\` / \`BorderTop/Right/Bottom/Left(width)\`
+- \`FontFamily(name)\` / \`FontSize(size)\`
+- \`Bold()\` / \`Italic()\`
+- \`HAlign(alignment)\` / \`VAlign(alignment)\`
+- \`Padding(padding)\`
 
 ### CellBuilder
+- \`ColSpan(count)\` / \`RowSpan(count)\`
+- \`Align(hAlign, vAlign)\`
+- \`Style(configure)\`
 
-Configures individual cells:
+## 🏗️ Architecture
 
-- `ColSpan(count)`: Sets column span
-- `RowSpan(count)`: Sets row span
-- `Width(width)`: Sets cell width
-- `Align(hAlign, vAlign)`: Sets text alignment
-- `Bold()`: Makes cell text bold
-- `Style(configure)`: Applies cell-specific styling
+Clean layered design:
+1. **Builder API** - Fluent interface
+2. **Model Layer** - Immutable records
+3. **Layout Engine** - Grid positioning & text wrapping
+4. **Rendering** - ImageSharp.Drawing integration
 
-### Rendering Options
+## ⚡ Performance
 
-```csharp
-var options = new RenderOptions
-{
-    Background = Color.White,
-    Margin = Padding.All(10)
-};
+- Font caching
+- Lazy measurement
+- Optimized text wrapping
+- Modern C# patterns (spans, records)
 
-var image = table.Render(options);
-```
+## 📄 License
 
-## Style Variations
+Apache License 2.0
 
-The library supports various table styles for different use cases:
+## 🤝 Contributing
 
-### Condensed Style
-```csharp
-var table = TableBuilder.Create()
-    .DefaultFont("Arial", 10)
-    .CellPadding(2)
-    .Border(1)
-    .Style(s => s.Background("#ffffff").BorderColor("#cccccc"))
-    .Header(header => header
-        .Style(s => s.Background("#f0f0f0").Bold())
-        .Row("ID", "Status", "Count"))
-    .Body(body => body
-        .Row("1", "Active", "42")
-        .Row("2", "Pending", "7"))
-    .Build();
-```
+Contributions welcome! Please submit Pull Requests.
 
-### Cozy Style
-```csharp
-var table = TableBuilder.Create()
-    .DefaultFont("Arial", 13)
-    .CellPadding(8)
-    .Border(1)
-    .Style(s => s.Background("#fafafa").BorderColor("#d0d0d0"))
-    .Header(header => header
-        .Style(s => s.Background("#4a90e2").TextColor("#ffffff").Bold())
-        .Row("Product", "Category", "Price"))
-    .Body(body => body
-        .Row("Laptop", "Electronics", "$1,299")
-        .Row("Monitor", "Electronics", "$499"))
-    .Build();
-```
+## 🙏 Credits
 
-### Roomy Style
-```csharp
-var table = TableBuilder.Create()
-    .DefaultFont("Arial", 16)
-    .CellPadding(20)
-    .Border(2)
-    .Style(s => s.Background("#ffffff").BorderColor("#999999"))
-    .Header(header => header
-        .Style(s => s.Background("#2c3e50").TextColor("#ecf0f1").Bold().FontSize(18).Padding(24))
-        .Row("Team", "Score", "Rank"))
-    .Body(body => body
-        .Row("Warriors", "98", "1st")
-        .Row("Lakers", "87", "2nd"))
-    .Build();
-```
-
-### Dark Mode Style
-```csharp
-var table = TableBuilder.Create()
-    .DefaultFont("Arial", 14)
-    .CellPadding(12)
-    .Border(1)
-    .Style(s => s.Background("#1e1e1e").TextColor("#e0e0e0").BorderColor("#404040"))
-    .Header(header => header
-        .Style(s => s.Background("#2d2d30").TextColor("#ffffff").Bold().BorderBottom(2).BorderColor("#007acc"))
-        .Row("Command", "Description", "Shortcut"))
-    .Body(body => body
-        .Row("Build", "Compile project", "Ctrl+Shift+B")
-        .Row("Run", "Execute program", "F5"))
-    .Build();
-```
-
-## Large Data Tables
-
-The library efficiently handles tables with many rows and numerical data:
-
-### Financial Data Example
-```csharp
-var table = TableBuilder.Create()
-    .DefaultFont("Arial", 11)
-    .CellPadding(6)
-    .Border(1)
-    .Header(header => header
-        .Style(s => s.Background("#2c3e50").TextColor("#ffffff").Bold().HAlign(HAlign.Center))
-        .Row("Ticker", "Company", "Price", "Change", "% Change", "Volume", "Mkt Cap", "P/E"))
-    .Body(body => body
-        .Row(row => row
-            .Cell("AAPL")
-            .Cell("Apple Inc.")
-            .Cell("187.45", cell => cell.Align(HAlign.Right))
-            .Cell("+2.34", cell => cell.Style(s => s.TextColor("#27ae60").HAlign(HAlign.Right)))
-            .Cell("+1.27%", cell => cell.Style(s => s.TextColor("#27ae60").HAlign(HAlign.Right)))
-            .Cell("42.5M", cell => cell.Align(HAlign.Right))
-            .Cell("2.87T", cell => cell.Align(HAlign.Right))
-            .Cell("28.5", cell => cell.Align(HAlign.Right)))
-        // ... more rows
-        .Row(row => row
-            .Style(s => s.Background("#f8f9fa"))
-            .Cell("MSFT")
-            .Cell("Microsoft Corp.")
-            .Cell("402.12", cell => cell.Align(HAlign.Right))
-            .Cell("+5.67", cell => cell.Style(s => s.TextColor("#27ae60").HAlign(HAlign.Right)))
-            .Cell("+1.43%", cell => cell.Style(s => s.TextColor("#27ae60").HAlign(HAlign.Right)))
-            .Cell("28.3M", cell => cell.Align(HAlign.Right))
-            .Cell("2.99T", cell => cell.Align(HAlign.Right))
-            .Cell("35.2", cell => cell.Align(HAlign.Right))))
-    .Build();
-```
-
-## Architecture
-
-The library follows a clean architecture with distinct layers:
-
-1. **Builder API Layer**: Fluent API for constructing tables
-2. **Model Layer**: Immutable data structures representing table state
-3. **Layout Engine**: Algorithms for grid placement, column sizing, and text wrapping
-4. **Rendering Engine**: Image generation using SixLabors.ImageSharp.Drawing
-
-### Key Design Decisions
-
-- **Style Cascade**: Table → Section → Row → Cell (follows HTML/CSS model)
-- **Column Width Algorithm**: Fixed columns are honored, auto columns fit content
-- **Border Model**: Separate borders (each cell draws its own borders)
-- **Text Wrapping**: Greedy word wrapping with character-level fallback
-- **Span Resolution**: 2D grid tracking for proper span placement
-
-## Performance Considerations
-
-- **Font Caching**: Fonts are cached to avoid repeated file I/O
-- **Lazy Measurement**: Layout is calculated only when rendering
-- **Efficient Text Wrapping**: Optimized algorithms for text measurement
-- **Memory Management**: Proper disposal of ImageSharp resources
-
-## Examples
-
-The `Examples` project contains comprehensive demonstrations of all features:
-
-1. **Basic Table**: Simple data table
-2. **Styled Table**: Professional styling with headers
-3. **Alternating Rows**: Zebra-striped tables
-4. **Table with Spans**: Column and row spanning
-5. **Text Alignment**: Various alignment options
-
-Run the examples:
-
-```bash
-cd SixLabors.ImageSharp.TableGenerator.Examples
-dotnet run
-```
-
-## Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Add tests for new functionality
-5. Ensure all tests pass
-6. Submit a pull request
-
-## License
-
-This project is licensed under the [Apache License 2.0](LICENSE).
-
-## Acknowledgments
-
-Built on the excellent [SixLabors.ImageSharp](https://github.com/SixLabors/ImageSharp) ecosystem.
+Built on [SixLabors.ImageSharp](https://github.com/SixLabors/ImageSharp)
 
 ---
 
-For more examples and detailed documentation, see the [Examples](SixLabors.ImageSharp.TableGenerator.Examples/) project.
+Made with ❤️ for .NET

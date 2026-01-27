@@ -9,11 +9,7 @@ public class StyleVariationsTests
 
     public StyleVariationsTests()
     {
-        _outputDir = Path.Combine(
-            AppContext.BaseDirectory,
-            "test-output",
-            "style-variations"
-        );
+        _outputDir = Path.Combine(AppContext.BaseDirectory, "test-output", "style-variations");
         Directory.CreateDirectory(_outputDir);
     }
 
@@ -31,9 +27,7 @@ public class StyleVariationsTests
                 header.Style(s => s.Background("#f0f0f0").Bold()).Row("ID", "Status", "Count")
             )
             .Body(body =>
-                body.Row("1", "Active", "42")
-                    .Row("2", "Pending", "7")
-                    .Row("3", "Complete", "128")
+                body.Row("1", "Active", "42").Row("2", "Pending", "7").Row("3", "Complete", "128")
             )
             .Build();
 

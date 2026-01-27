@@ -1,4 +1,5 @@
 using System.Collections.Concurrent;
+using System.Runtime.CompilerServices;
 using SixLabors.Fonts;
 
 namespace SixLabors.ImageSharp.TableGenerator.Rendering;
@@ -17,6 +18,7 @@ internal static class FontCache
     /// <param name="size">Font size</param>
     /// <param name="style">Font style</param>
     /// <returns>The cached or newly created font</returns>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static Font GetFont(string family, float size, FontStyle style)
     {
         var key = new FontKey(family, size, style);
@@ -52,5 +54,5 @@ internal static class FontCache
         _cache.Clear();
     }
 
-    private record FontKey(string Family, float Size, FontStyle Style);
+    private readonly record struct FontKey(string Family, float Size, FontStyle Style);
 }

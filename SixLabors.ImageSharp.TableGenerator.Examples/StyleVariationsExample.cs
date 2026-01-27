@@ -27,7 +27,9 @@ public static class StyleVariationsExample
             .Border(1)
             .Style(s => s.Background("#ffffff").BorderColor("#cccccc"))
             .Header(header =>
-                header.Style(s => s.Background("#f0f0f0").Bold()).Row("ID", "Name", "Status", "Count")
+                header
+                    .Style(s => s.Background("#f0f0f0").Bold())
+                    .Row("ID", "Name", "Status", "Count")
             )
             .Body(body =>
                 body.Row("1", "Project Alpha", "Active", "42")
@@ -116,22 +118,25 @@ public static class StyleVariationsExample
                 body.Row(row =>
                         row.Cell("Q1 2026")
                             .Cell("$24.5M", cell => cell.Align(HAlign.Right))
-                            .Cell("+12.3%", cell =>
-                                cell.Style(s => s.TextColor("#27ae60").HAlign(HAlign.Right))
+                            .Cell(
+                                "+12.3%",
+                                cell => cell.Style(s => s.TextColor("#27ae60").HAlign(HAlign.Right))
                             )
                     )
                     .Row(row =>
                         row.Cell("Q2 2026")
                             .Cell("$28.7M", cell => cell.Align(HAlign.Right))
-                            .Cell("+17.1%", cell =>
-                                cell.Style(s => s.TextColor("#27ae60").HAlign(HAlign.Right))
+                            .Cell(
+                                "+17.1%",
+                                cell => cell.Style(s => s.TextColor("#27ae60").HAlign(HAlign.Right))
                             )
                     )
                     .Row(row =>
                         row.Cell("Q3 2026")
                             .Cell("$31.2M", cell => cell.Align(HAlign.Right))
-                            .Cell("+8.7%", cell =>
-                                cell.Style(s => s.TextColor("#27ae60").HAlign(HAlign.Right))
+                            .Cell(
+                                "+8.7%",
+                                cell => cell.Style(s => s.TextColor("#27ae60").HAlign(HAlign.Right))
                             )
                     )
             )

@@ -1,3 +1,4 @@
+using System.Runtime.CompilerServices;
 using SixLabors.Fonts;
 using SixLabors.ImageSharp;
 
@@ -33,6 +34,7 @@ public record TableStyle
     /// </summary>
     /// <param name="other">The style to merge with</param>
     /// <returns>A new merged style</returns>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public TableStyle Merge(TableStyle? other)
     {
         if (other == null)

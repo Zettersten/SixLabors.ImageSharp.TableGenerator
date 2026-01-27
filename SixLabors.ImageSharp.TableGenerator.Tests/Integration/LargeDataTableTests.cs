@@ -33,15 +33,30 @@ public class LargeDataTableTests
                             .Padding(8)
                             .HAlign(HAlign.Center)
                     )
-                    .Row("Ticker", "Company", "Price", "Change", "% Change", "Volume", "Mkt Cap", "P/E")
+                    .Row(
+                        "Ticker",
+                        "Company",
+                        "Price",
+                        "Change",
+                        "% Change",
+                        "Volume",
+                        "Mkt Cap",
+                        "P/E"
+                    )
             )
             .Body(body =>
                 body.Row(row =>
                         row.Cell("AAPL")
                             .Cell("Apple Inc.")
                             .Cell("187.45", cell => cell.Align(HAlign.Right))
-                            .Cell("+2.34", cell => cell.Style(s => s.TextColor("#27ae60").HAlign(HAlign.Right)))
-                            .Cell("+1.27%", cell => cell.Style(s => s.TextColor("#27ae60").HAlign(HAlign.Right)))
+                            .Cell(
+                                "+2.34",
+                                cell => cell.Style(s => s.TextColor("#27ae60").HAlign(HAlign.Right))
+                            )
+                            .Cell(
+                                "+1.27%",
+                                cell => cell.Style(s => s.TextColor("#27ae60").HAlign(HAlign.Right))
+                            )
                             .Cell("42.5M", cell => cell.Align(HAlign.Right))
                             .Cell("2.87T", cell => cell.Align(HAlign.Right))
                             .Cell("28.5", cell => cell.Align(HAlign.Right))
@@ -51,8 +66,14 @@ public class LargeDataTableTests
                             .Cell("MSFT")
                             .Cell("Microsoft Corp.")
                             .Cell("402.12", cell => cell.Align(HAlign.Right))
-                            .Cell("+5.67", cell => cell.Style(s => s.TextColor("#27ae60").HAlign(HAlign.Right)))
-                            .Cell("+1.43%", cell => cell.Style(s => s.TextColor("#27ae60").HAlign(HAlign.Right)))
+                            .Cell(
+                                "+5.67",
+                                cell => cell.Style(s => s.TextColor("#27ae60").HAlign(HAlign.Right))
+                            )
+                            .Cell(
+                                "+1.43%",
+                                cell => cell.Style(s => s.TextColor("#27ae60").HAlign(HAlign.Right))
+                            )
                             .Cell("28.3M", cell => cell.Align(HAlign.Right))
                             .Cell("2.99T", cell => cell.Align(HAlign.Right))
                             .Cell("35.2", cell => cell.Align(HAlign.Right))
@@ -61,8 +82,14 @@ public class LargeDataTableTests
                         row.Cell("GOOGL")
                             .Cell("Alphabet Inc.")
                             .Cell("145.89", cell => cell.Align(HAlign.Right))
-                            .Cell("-1.23", cell => cell.Style(s => s.TextColor("#e74c3c").HAlign(HAlign.Right)))
-                            .Cell("-0.84%", cell => cell.Style(s => s.TextColor("#e74c3c").HAlign(HAlign.Right)))
+                            .Cell(
+                                "-1.23",
+                                cell => cell.Style(s => s.TextColor("#e74c3c").HAlign(HAlign.Right))
+                            )
+                            .Cell(
+                                "-0.84%",
+                                cell => cell.Style(s => s.TextColor("#e74c3c").HAlign(HAlign.Right))
+                            )
                             .Cell("31.2M", cell => cell.Align(HAlign.Right))
                             .Cell("1.82T", cell => cell.Align(HAlign.Right))
                             .Cell("25.8", cell => cell.Align(HAlign.Right))
@@ -72,8 +99,14 @@ public class LargeDataTableTests
                             .Cell("AMZN")
                             .Cell("Amazon.com Inc.")
                             .Cell("178.34", cell => cell.Align(HAlign.Right))
-                            .Cell("+3.21", cell => cell.Style(s => s.TextColor("#27ae60").HAlign(HAlign.Right)))
-                            .Cell("+1.83%", cell => cell.Style(s => s.TextColor("#27ae60").HAlign(HAlign.Right)))
+                            .Cell(
+                                "+3.21",
+                                cell => cell.Style(s => s.TextColor("#27ae60").HAlign(HAlign.Right))
+                            )
+                            .Cell(
+                                "+1.83%",
+                                cell => cell.Style(s => s.TextColor("#27ae60").HAlign(HAlign.Right))
+                            )
                             .Cell("45.7M", cell => cell.Align(HAlign.Right))
                             .Cell("1.85T", cell => cell.Align(HAlign.Right))
                             .Cell("62.4", cell => cell.Align(HAlign.Right))
@@ -82,8 +115,14 @@ public class LargeDataTableTests
                         row.Cell("NVDA")
                             .Cell("NVIDIA Corp.")
                             .Cell("725.67", cell => cell.Align(HAlign.Right))
-                            .Cell("+15.43", cell => cell.Style(s => s.TextColor("#27ae60").HAlign(HAlign.Right)))
-                            .Cell("+2.17%", cell => cell.Style(s => s.TextColor("#27ae60").HAlign(HAlign.Right)))
+                            .Cell(
+                                "+15.43",
+                                cell => cell.Style(s => s.TextColor("#27ae60").HAlign(HAlign.Right))
+                            )
+                            .Cell(
+                                "+2.17%",
+                                cell => cell.Style(s => s.TextColor("#27ae60").HAlign(HAlign.Right))
+                            )
                             .Cell("68.9M", cell => cell.Align(HAlign.Right))
                             .Cell("1.79T", cell => cell.Align(HAlign.Right))
                             .Cell("71.3", cell => cell.Align(HAlign.Right))
@@ -93,8 +132,14 @@ public class LargeDataTableTests
                             .Cell("META")
                             .Cell("Meta Platforms")
                             .Cell("489.23", cell => cell.Align(HAlign.Right))
-                            .Cell("+7.89", cell => cell.Style(s => s.TextColor("#27ae60").HAlign(HAlign.Right)))
-                            .Cell("+1.64%", cell => cell.Style(s => s.TextColor("#27ae60").HAlign(HAlign.Right)))
+                            .Cell(
+                                "+7.89",
+                                cell => cell.Style(s => s.TextColor("#27ae60").HAlign(HAlign.Right))
+                            )
+                            .Cell(
+                                "+1.64%",
+                                cell => cell.Style(s => s.TextColor("#27ae60").HAlign(HAlign.Right))
+                            )
                             .Cell("19.4M", cell => cell.Align(HAlign.Right))
                             .Cell("1.24T", cell => cell.Align(HAlign.Right))
                             .Cell("29.6", cell => cell.Align(HAlign.Right))
@@ -103,8 +148,14 @@ public class LargeDataTableTests
                         row.Cell("TSLA")
                             .Cell("Tesla Inc.")
                             .Cell("245.67", cell => cell.Align(HAlign.Right))
-                            .Cell("-4.23", cell => cell.Style(s => s.TextColor("#e74c3c").HAlign(HAlign.Right)))
-                            .Cell("-1.69%", cell => cell.Style(s => s.TextColor("#e74c3c").HAlign(HAlign.Right)))
+                            .Cell(
+                                "-4.23",
+                                cell => cell.Style(s => s.TextColor("#e74c3c").HAlign(HAlign.Right))
+                            )
+                            .Cell(
+                                "-1.69%",
+                                cell => cell.Style(s => s.TextColor("#e74c3c").HAlign(HAlign.Right))
+                            )
                             .Cell("112.3M", cell => cell.Align(HAlign.Right))
                             .Cell("779B", cell => cell.Align(HAlign.Right))
                             .Cell("68.9", cell => cell.Align(HAlign.Right))
@@ -114,8 +165,14 @@ public class LargeDataTableTests
                             .Cell("JPM")
                             .Cell("JPMorgan Chase")
                             .Cell("189.34", cell => cell.Align(HAlign.Right))
-                            .Cell("+0.87", cell => cell.Style(s => s.TextColor("#27ae60").HAlign(HAlign.Right)))
-                            .Cell("+0.46%", cell => cell.Style(s => s.TextColor("#27ae60").HAlign(HAlign.Right)))
+                            .Cell(
+                                "+0.87",
+                                cell => cell.Style(s => s.TextColor("#27ae60").HAlign(HAlign.Right))
+                            )
+                            .Cell(
+                                "+0.46%",
+                                cell => cell.Style(s => s.TextColor("#27ae60").HAlign(HAlign.Right))
+                            )
                             .Cell("8.7M", cell => cell.Align(HAlign.Right))
                             .Cell("549B", cell => cell.Align(HAlign.Right))
                             .Cell("10.8", cell => cell.Align(HAlign.Right))
@@ -155,7 +212,10 @@ public class LargeDataTableTests
                             .Cell("1,247,893", cell => cell.Align(HAlign.Right))
                             .Cell("3.42%", cell => cell.Align(HAlign.Right))
                             .Cell("$67.23", cell => cell.Align(HAlign.Right))
-                            .Cell("+12.3%", cell => cell.Style(s => s.TextColor("#27ae60").HAlign(HAlign.Right)))
+                            .Cell(
+                                "+12.3%",
+                                cell => cell.Style(s => s.TextColor("#27ae60").HAlign(HAlign.Right))
+                            )
                     )
                     .Row(row =>
                         row.Style(s => s.Background("#f8f9fa"))
@@ -164,7 +224,10 @@ public class LargeDataTableTests
                             .Cell("892,456", cell => cell.Align(HAlign.Right))
                             .Cell("2.98%", cell => cell.Align(HAlign.Right))
                             .Cell("$54.12", cell => cell.Align(HAlign.Right))
-                            .Cell("+8.7%", cell => cell.Style(s => s.TextColor("#27ae60").HAlign(HAlign.Right)))
+                            .Cell(
+                                "+8.7%",
+                                cell => cell.Style(s => s.TextColor("#27ae60").HAlign(HAlign.Right))
+                            )
                     )
                     .Row(row =>
                         row.Cell("Asia Pacific")
@@ -172,7 +235,10 @@ public class LargeDataTableTests
                             .Cell("2,456,789", cell => cell.Align(HAlign.Right))
                             .Cell("4.15%", cell => cell.Align(HAlign.Right))
                             .Cell("$42.89", cell => cell.Align(HAlign.Right))
-                            .Cell("+18.2%", cell => cell.Style(s => s.TextColor("#27ae60").HAlign(HAlign.Right)))
+                            .Cell(
+                                "+18.2%",
+                                cell => cell.Style(s => s.TextColor("#27ae60").HAlign(HAlign.Right))
+                            )
                     )
                     .Row(row =>
                         row.Style(s => s.Background("#f8f9fa"))
@@ -181,21 +247,25 @@ public class LargeDataTableTests
                             .Cell("456,123", cell => cell.Align(HAlign.Right))
                             .Cell("2.34%", cell => cell.Align(HAlign.Right))
                             .Cell("$38.45", cell => cell.Align(HAlign.Right))
-                            .Cell("-2.1%", cell => cell.Style(s => s.TextColor("#e74c3c").HAlign(HAlign.Right)))
+                            .Cell(
+                                "-2.1%",
+                                cell => cell.Style(s => s.TextColor("#e74c3c").HAlign(HAlign.Right))
+                            )
                     )
             )
             .Footer(footer =>
                 footer
-                    .Style(s =>
-                        s.Background("#e9ecef").Bold().BorderTop(2).BorderColor("#495057")
-                    )
+                    .Style(s => s.Background("#e9ecef").Bold().BorderTop(2).BorderColor("#495057"))
                     .Row(row =>
                         row.Cell("TOTAL")
                             .Cell("$81.7M", cell => cell.Align(HAlign.Right))
                             .Cell("5,052,261", cell => cell.Align(HAlign.Right))
                             .Cell("3.42%", cell => cell.Align(HAlign.Right))
                             .Cell("$50.67", cell => cell.Align(HAlign.Right))
-                            .Cell("+9.3%", cell => cell.Style(s => s.TextColor("#27ae60").HAlign(HAlign.Right)))
+                            .Cell(
+                                "+9.3%",
+                                cell => cell.Style(s => s.TextColor("#27ae60").HAlign(HAlign.Right))
+                            )
                     )
             )
             .Build();
