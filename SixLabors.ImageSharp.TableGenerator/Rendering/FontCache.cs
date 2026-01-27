@@ -33,16 +33,31 @@ internal static class FontCache
         }
         catch
         {
-            // Fallback to Arial if the requested font is not available
-            try
+            // Try common fallback fonts for different platforms
+            string[] fallbackFonts = new[]
             {
-                return SystemFonts.CreateFont("Arial", size, style);
-            }
-            catch
+                "Arial", // Windows, macOS (with MS Office)
+                "DejaVu Sans", // Linux (common)
+                "Liberation Sans", // Linux (common)
+                "FreeSans", // Linux fallback
+                "Helvetica", // macOS
+                "Segoe UI", // Windows
+            };
+
+            foreach (var fallback in fallbackFonts)
             {
-                // Final fallback to any available system font
-                return SystemFonts.CreateFont(SystemFonts.Families.First().Name, size, style);
+                try
+                {
+                    return SystemFonts.CreateFont(fallback, size, style);
+                }
+                catch
+                {
+                    // Continue to next fallback
+                }
             }
+
+            // Final fallback to any available system font
+            return SystemFonts.CreateFont(SystemFonts.Families.First().Name, size, style);
         }
     }
 

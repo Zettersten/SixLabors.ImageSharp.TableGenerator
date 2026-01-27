@@ -46,6 +46,10 @@ class Program
             Console.WriteLine("\n7. Large Data Tables...");
             LargeDataExample.Run(outputDir);
 
+            // Example 8: Extensions API
+            Console.WriteLine("\n8. Extensions API (ToTable/ToTableImage)...");
+            ExtensionsExample.Run();
+
             Console.WriteLine(
                 $"\nAll examples completed! Check the {outputDir} directory for generated images."
             );

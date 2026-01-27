@@ -8,22 +8,25 @@ A powerful table rendering library for **SixLabors.ImageSharp** that generates b
 
 ## ✨ Features
 
-- 🎨 **Rich Styling** - Full control over colors, borders, fonts, padding, and alignment
-- 📊 **Advanced Layout** - Row/column spans, auto-sizing columns, text wrapping
-- 🎯 **CSS-Like API** - Familiar fluent API with style cascading
-- 📑 **Section Support** - Header, body, and footer sections
-- 🦓 **Zebra Striping** - Built-in alternating row styles
-- ⚡ **High Performance** - Font caching and optimized rendering
+- 🎨 **Rich Styling** — Full control over colors, borders, fonts, padding, and alignment
+- 📊 **Advanced Layout** — Row/column spans, auto-sizing columns, text wrapping
+- 🎯 **CSS-Like API** — Familiar fluent API with style cascading
+- 📑 **Section Support** — Header, body, and footer sections
+- 🦓 **Zebra Striping** — Built-in alternating row styles
+- ⚡ **High Performance** — Font caching and optimized rendering
+- 🚀 **Extension Methods** — Quick table generation from collections with built-in themes
 
 ## 📦 Installation
 
-\`\`\`bash
+```bash
 dotnet add package SixLabors.ImageSharp.TableGenerator
-\`\`\`
+```
 
 ## 🚀 Quick Start
 
-\`\`\`csharp
+### Builder API
+
+```csharp
 using SixLabors.ImageSharp.TableGenerator;
 using SixLabors.ImageSharp.TableGenerator.Builders;
 
@@ -36,9 +39,28 @@ var table = TableBuilder.Create()
 
 var image = table.Render();
 image.SaveAsPng("table.png");
-\`\`\`
+```
 
 ![Basic Table](SixLabors.ImageSharp.TableGenerator.Examples/output/basic_table.png)
+
+### Extension Method (Fastest)
+
+```csharp
+using SixLabors.ImageSharp.TableGenerator.Extensions;
+
+public record Person(string Name, int Age, string City);
+
+var people = new[]
+{
+    new Person("Alice", 30, "New York"),
+    new Person("Bob", 25, "San Francisco"),
+    new Person("Charlie", 35, "Seattle")
+};
+
+// Generate table image directly from collection
+var image = people.ToTableImage();
+image.SaveAsPng("people.png");
+```
 
 ## 📸 Style Showcase
 
@@ -59,10 +81,11 @@ image.SaveAsPng("table.png");
 ### Analytics Dashboard with Footer Totals
 ![Analytics](SixLabors.ImageSharp.TableGenerator.Examples/output/example-analytics-dashboard.png)
 
-## 📚 Examples
+## 📚 Core Examples
 
-### Styled Table
-\`\`\`csharp
+### Styled Table with Header
+
+```csharp
 var table = TableBuilder.Create()
     .DefaultFont("Arial", 14)
     .CellPadding(12)
@@ -75,12 +98,13 @@ var table = TableBuilder.Create()
         .Row("Laptop", "$999", "15")
         .Row("Mouse", "$25", "50"))
     .Build();
-\`\`\`
+```
 
 ![Styled](SixLabors.ImageSharp.TableGenerator.Examples/output/styled_table.png)
 
 ### Alternating Rows
-\`\`\`csharp
+
+```csharp
 var table = TableBuilder.Create()
     .Body(body => body
         .Row("001", "Alice", "Engineering", "$75,000")
@@ -89,61 +113,209 @@ var table = TableBuilder.Create()
         even => even.Background("#ffffff"),
         odd => odd.Background("#f8f9fa"))
     .Build();
-\`\`\`
+```
 
 ![Alternating](SixLabors.ImageSharp.TableGenerator.Examples/output/alternating_rows_table.png)
 
 ### Column Spans
-\`\`\`csharp
+
+```csharp
 var table = TableBuilder.Create()
     .Body(body => body
         .Row(row => row
             .Cell("Q1 Report", cell => cell.ColSpan(3).Style(s => s.Bold())))
         .Row("Month", "Revenue", "Growth"))
     .Build();
-\`\`\`
+```
 
 ![Spans](SixLabors.ImageSharp.TableGenerator.Examples/output/spans_table.png)
 
+## 🚀 Extension Methods API
+
+The extension methods provide the fastest way to generate tables from any collection of objects.
+
+### Basic Usage
+
+```csharp
+using SixLabors.ImageSharp.TableGenerator.Extensions;
+
+var data = new[] { /* your objects */ };
+var image = data.ToTableImage();
+```
+
+### Built-in Themes
+
+```csharp
+// Light theme (default)
+var lightTable = data.ToTableImage();
+
+// Dark theme
+var darkTable = data.ToTableImage(new TableGeneratorOptions 
+{ 
+    Theme = ThemeMode.Dark 
+});
+
+// Minimal theme (no background colors)
+var minimalTable = data.ToTableImage(new TableGeneratorOptions 
+{ 
+    Theme = ThemeMode.Minimal 
+});
+
+// Compact theme (reduced padding)
+var compactTable = data.ToTableImage(new TableGeneratorOptions 
+{ 
+    Theme = ThemeMode.Compact 
+});
+```
+
+### Advanced Options
+
+```csharp
+var options = new TableGeneratorOptions
+{
+    // Theme selection
+    Theme = ThemeMode.Dark,
+    
+    // Filter properties to include
+    PropertyFilter = prop => prop.Name != "InternalId",
+    
+    // Customize column ordering
+    PropertyOrder = new[] { "Name", "Age", "Email" },
+    
+    // Format property names (headers)
+    PropertyNameFormatter = prop => prop.Name.ToUpper(),
+    
+    // Format cell values
+    ValueFormatter = val => val?.ToString() ?? "N/A",
+    
+    // Hide headers
+    IncludeHeaders = false
+};
+
+var image = data.ToTableImage(options);
+```
+
+### Real-World Extension Examples
+
+#### Example 1: Filter Sensitive Properties
+
+```csharp
+public record Employee(string Name, string Email, string Password, decimal Salary);
+
+var employees = GetEmployees();
+
+// Exclude sensitive fields
+var image = employees.ToTableImage(new TableGeneratorOptions
+{
+    PropertyFilter = prop => prop.Name != "Password" && prop.Name != "Salary"
+});
+```
+
+#### Example 2: Custom Column Order and Formatting
+
+```csharp
+var options = new TableGeneratorOptions
+{
+    Theme = ThemeMode.Dark,
+    PropertyOrder = new[] { "Country", "City", "Population" },
+    PropertyNameFormatter = prop => prop.Name.ToUpper(),
+    ValueFormatter = val => val is int num ? num.ToString("N0") : val?.ToString()
+};
+
+var cities = GetCities();
+var image = cities.ToTableImage(options);
+```
+
+#### Example 3: Data Export Without Headers
+
+```csharp
+// Generate compact data table without headers
+var image = transactions.ToTableImage(new TableGeneratorOptions
+{
+    Theme = ThemeMode.Compact,
+    IncludeHeaders = false
+});
+```
+
 ## 🎯 API Reference
 
-### TableBuilder
-- \`Create()\` - Start building a table
-- \`DefaultFont(family, size)\` - Set default font
-- \`CellPadding(padding)\` - Set cell padding
-- \`Border(width)\` - Set border width
-- \`Width(maxWidth)\` - Set maximum width
-- \`Header/Body/Footer(configure)\` - Configure sections
-- \`AlternateRows(even, odd)\` - Zebra striping
-- \`Style(configure)\` - Apply styles
+### TableBuilder Methods
 
-### StyleBuilder
-- \`Background(color)\` / \`TextColor(color)\` / \`BorderColor(color)\`
-- \`Border(width)\` / \`BorderTop/Right/Bottom/Left(width)\`
-- \`FontFamily(name)\` / \`FontSize(size)\`
-- \`Bold()\` / \`Italic()\`
-- \`HAlign(alignment)\` / \`VAlign(alignment)\`
-- \`Padding(padding)\`
+| Method | Description |
+|--------|-------------|
+| `Create()` | Start building a table |
+| `DefaultFont(family, size)` | Set default font |
+| `CellPadding(padding)` | Set cell padding |
+| `Border(width)` | Set border width |
+| `Width(maxWidth)` | Set maximum width |
+| `Header(configure)` | Configure header section |
+| `Body(configure)` | Configure body section |
+| `Footer(configure)` | Configure footer section |
+| `AlternateRows(even, odd)` | Apply zebra striping |
+| `Style(configure)` | Apply table-level styles |
+| `Build()` | Create the table model |
 
-### CellBuilder
-- \`ColSpan(count)\` / \`RowSpan(count)\`
-- \`Align(hAlign, vAlign)\`
-- \`Style(configure)\`
+### StyleBuilder Methods
+
+| Method | Description |
+|--------|-------------|
+| `Background(color)` | Set background color |
+| `TextColor(color)` | Set text color |
+| `BorderColor(color)` | Set border color |
+| `Border(width)` | Set all borders |
+| `BorderTop/Right/Bottom/Left(width)` | Set individual borders |
+| `FontFamily(name)` | Set font family |
+| `FontSize(size)` | Set font size |
+| `Bold()` | Make text bold |
+| `Italic()` | Make text italic |
+| `HAlign(alignment)` | Set horizontal alignment |
+| `VAlign(alignment)` | Set vertical alignment |
+| `Padding(padding)` | Set cell padding |
+
+### CellBuilder Methods
+
+| Method | Description |
+|--------|-------------|
+| `ColSpan(count)` | Span multiple columns |
+| `RowSpan(count)` | Span multiple rows |
+| `Align(hAlign, vAlign)` | Set cell alignment |
+| `Style(configure)` | Apply cell-level styles |
+
+### Extension Methods
+
+| Method | Description |
+|--------|-------------|
+| `ToTableImage<T>(this IEnumerable<T>)` | Generate table from collection with default options |
+| `ToTableImage<T>(this IEnumerable<T>, TableGeneratorOptions)` | Generate table with custom options |
+
+### TableGeneratorOptions Properties
+
+| Property | Type | Description |
+|----------|------|-------------|
+| `Theme` | `ThemeMode` | Light, Dark, Minimal, or Compact |
+| `PropertyFilter` | `Func<PropertyInfo, bool>` | Filter which properties to include |
+| `PropertyOrder` | `string[]` | Specify column order |
+| `PropertyNameFormatter` | `Func<PropertyInfo, string>` | Format column headers |
+| `ValueFormatter` | `Func<object?, string>` | Format cell values |
+| `IncludeHeaders` | `bool` | Show/hide header row |
 
 ## 🏗️ Architecture
 
-Clean layered design:
-1. **Builder API** - Fluent interface
-2. **Model Layer** - Immutable records
-3. **Layout Engine** - Grid positioning & text wrapping
-4. **Rendering** - ImageSharp.Drawing integration
+The library follows a clean layered architecture:
+
+1. **Builder API** — Fluent interface for constructing tables
+2. **Extension API** — Reflection-based table generation from collections
+3. **Model Layer** — Immutable records representing table structure
+4. **Layout Engine** — Grid positioning, span resolution, and text wrapping
+5. **Rendering Engine** — ImageSharp.Drawing integration with style cascading
 
 ## ⚡ Performance
 
-- Font caching
-- Lazy measurement
-- Optimized text wrapping
-- Modern C# patterns (spans, records)
+- **Font Caching** — Fonts are cached by family, size, and style to avoid repeated I/O
+- **Lazy Measurement** — Text is measured only when necessary during layout
+- **Optimized Text Wrapping** — Greedy algorithm with character-level fallback
+- **Modern C# Patterns** — Uses spans, records, and value types for efficiency
+- **Zero Allocation Paths** — Critical paths avoid unnecessary allocations
 
 ## 📄 License
 
@@ -151,12 +323,22 @@ Apache License 2.0
 
 ## 🤝 Contributing
 
-Contributions welcome! Please submit Pull Requests.
+Contributions are welcome! 
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes with tests
+4. Submit a pull request
+
+Please ensure all tests pass and code follows existing patterns.
 
 ## 🙏 Credits
 
-Built on [SixLabors.ImageSharp](https://github.com/SixLabors/ImageSharp)
+Built on:
+- [SixLabors.ImageSharp](https://github.com/SixLabors/ImageSharp) — Core image processing
+- [SixLabors.ImageSharp.Drawing](https://github.com/SixLabors/ImageSharp.Drawing) — Drawing primitives
+- [SixLabors.Fonts](https://github.com/SixLabors/Fonts) — Font loading and text measurement
 
 ---
 
-Made with ❤️ for .NET
+**Made with ❤️ for .NET**
