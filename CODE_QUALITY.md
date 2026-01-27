@@ -111,14 +111,53 @@ The only warnings in the original build were related to a known moderate severit
 
 ## 🔧 Continuous Quality
 
-### Pre-commit Recommendations
-To maintain code quality, consider adding these commands to your workflow:
+### Automated Pre-Commit Hooks (Husky.Net)
+
+This project uses **Husky.Net v0.8.0** to automatically enforce code quality before every commit.
+
+#### What Runs on Every Commit
+
+The `.husky/pre-commit` hook automatically executes three tasks:
+
+1. **Code Formatting** - `csharpier format .`
+   - Auto-formats all C# files according to `.csharpierrc.json`
+   - Ensures consistent style across the codebase
+
+2. **Build Verification** - `dotnet build --no-incremental`
+   - Validates that all code compiles without errors
+   - Catches build issues before they reach the repository
+
+3. **Test Execution** - `dotnet test --no-build --verbosity minimal`
+   - Runs all 145 unit and integration tests
+   - Prevents commits that break existing functionality
+
+#### Configuration
+
+Husky is installed as a local tool:
+```bash
+dotnet tool restore  # Restores Husky and other tools
+```
+
+Pre-commit tasks are defined in `.husky/task-runner.json`.
+
+#### Bypassing Hooks (Not Recommended)
+
+In rare cases where you need to commit without running checks:
+```bash
+git commit --no-verify -m "Your message"
+```
+
+⚠️ **Warning**: Only use `--no-verify` for WIP commits on feature branches.
+
+### Manual Quality Checks
+
+You can also run these commands manually:
 
 ```bash
-# Format code before committing
+# Format code
 csharpier format .
 
-# Check formatting
+# Check formatting without modifying files
 csharpier check .
 
 # Build with no warnings
