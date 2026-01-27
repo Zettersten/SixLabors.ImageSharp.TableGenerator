@@ -1,0 +1,38 @@
+{
+   "$schema": "https://alirezanet.github.io/Husky.Net/schema.json",
+   "tasks": [
+      {
+         "name": "Format code with CSharpier",
+         "command": "csharpier",
+         "args": [ "format", "." ],
+         "windows": {
+            "command": "csharpier",
+            "args": [ "format", "." ]
+         },
+         "pathMode": "absolute",
+         "group": "pre-commit"
+      },
+      {
+         "name": "Build solution",
+         "command": "dotnet",
+         "args": [ "build", "--no-incremental" ],
+         "windows": {
+            "command": "dotnet",
+            "args": [ "build", "--no-incremental" ]
+         },
+         "pathMode": "absolute",
+         "group": "pre-commit"
+      },
+      {
+         "name": "Run all tests",
+         "command": "dotnet",
+         "args": [ "test", "--no-build", "--verbosity", "minimal" ],
+         "windows": {
+            "command": "dotnet",
+            "args": [ "test", "--no-build", "--verbosity", "minimal" ]
+         },
+         "pathMode": "absolute",
+         "group": "pre-commit"
+      }
+   ]
+}
