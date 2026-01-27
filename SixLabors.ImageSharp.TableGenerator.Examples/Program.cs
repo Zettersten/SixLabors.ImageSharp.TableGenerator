@@ -38,6 +38,14 @@ class Program
             Console.WriteLine("5. Creating table with text alignment...");
             CreateAlignmentTable(outputDir);
 
+            // Example 6: Style Variations
+            Console.WriteLine("\n6. Style Variations...");
+            StyleVariationsExample.Run(outputDir);
+
+            // Example 7: Large Data Tables
+            Console.WriteLine("\n7. Large Data Tables...");
+            LargeDataExample.Run(outputDir);
+
             Console.WriteLine(
                 $"\nAll examples completed! Check the {outputDir} directory for generated images."
             );
