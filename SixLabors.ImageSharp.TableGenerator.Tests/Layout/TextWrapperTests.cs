@@ -1,5 +1,6 @@
 using SixLabors.Fonts;
 using SixLabors.ImageSharp.TableGenerator.Layout;
+using SixLabors.ImageSharp.TableGenerator.Rendering;
 
 namespace SixLabors.ImageSharp.TableGenerator.Tests.Layout;
 
@@ -9,8 +10,8 @@ public class TextWrapperTests
 
     public TextWrapperTests()
     {
-        // Use a standard system font for consistent testing
-        _testFont = SystemFonts.CreateFont("Arial", 12f);
+        // Use FontCache for cross-platform font support
+        _testFont = FontCache.GetFont("Arial", 12f, FontStyle.Regular);
     }
 
     [Fact]
