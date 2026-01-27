@@ -176,6 +176,111 @@ var options = new RenderOptions
 var image = table.Render(options);
 ```
 
+## Style Variations
+
+The library supports various table styles for different use cases:
+
+### Condensed Style
+```csharp
+var table = TableBuilder.Create()
+    .DefaultFont("Arial", 10)
+    .CellPadding(2)
+    .Border(1)
+    .Style(s => s.Background("#ffffff").BorderColor("#cccccc"))
+    .Header(header => header
+        .Style(s => s.Background("#f0f0f0").Bold())
+        .Row("ID", "Status", "Count"))
+    .Body(body => body
+        .Row("1", "Active", "42")
+        .Row("2", "Pending", "7"))
+    .Build();
+```
+
+### Cozy Style
+```csharp
+var table = TableBuilder.Create()
+    .DefaultFont("Arial", 13)
+    .CellPadding(8)
+    .Border(1)
+    .Style(s => s.Background("#fafafa").BorderColor("#d0d0d0"))
+    .Header(header => header
+        .Style(s => s.Background("#4a90e2").TextColor("#ffffff").Bold())
+        .Row("Product", "Category", "Price"))
+    .Body(body => body
+        .Row("Laptop", "Electronics", "$1,299")
+        .Row("Monitor", "Electronics", "$499"))
+    .Build();
+```
+
+### Roomy Style
+```csharp
+var table = TableBuilder.Create()
+    .DefaultFont("Arial", 16)
+    .CellPadding(20)
+    .Border(2)
+    .Style(s => s.Background("#ffffff").BorderColor("#999999"))
+    .Header(header => header
+        .Style(s => s.Background("#2c3e50").TextColor("#ecf0f1").Bold().FontSize(18).Padding(24))
+        .Row("Team", "Score", "Rank"))
+    .Body(body => body
+        .Row("Warriors", "98", "1st")
+        .Row("Lakers", "87", "2nd"))
+    .Build();
+```
+
+### Dark Mode Style
+```csharp
+var table = TableBuilder.Create()
+    .DefaultFont("Arial", 14)
+    .CellPadding(12)
+    .Border(1)
+    .Style(s => s.Background("#1e1e1e").TextColor("#e0e0e0").BorderColor("#404040"))
+    .Header(header => header
+        .Style(s => s.Background("#2d2d30").TextColor("#ffffff").Bold().BorderBottom(2).BorderColor("#007acc"))
+        .Row("Command", "Description", "Shortcut"))
+    .Body(body => body
+        .Row("Build", "Compile project", "Ctrl+Shift+B")
+        .Row("Run", "Execute program", "F5"))
+    .Build();
+```
+
+## Large Data Tables
+
+The library efficiently handles tables with many rows and numerical data:
+
+### Financial Data Example
+```csharp
+var table = TableBuilder.Create()
+    .DefaultFont("Arial", 11)
+    .CellPadding(6)
+    .Border(1)
+    .Header(header => header
+        .Style(s => s.Background("#2c3e50").TextColor("#ffffff").Bold().HAlign(HAlign.Center))
+        .Row("Ticker", "Company", "Price", "Change", "% Change", "Volume", "Mkt Cap", "P/E"))
+    .Body(body => body
+        .Row(row => row
+            .Cell("AAPL")
+            .Cell("Apple Inc.")
+            .Cell("187.45", cell => cell.Align(HAlign.Right))
+            .Cell("+2.34", cell => cell.Style(s => s.TextColor("#27ae60").HAlign(HAlign.Right)))
+            .Cell("+1.27%", cell => cell.Style(s => s.TextColor("#27ae60").HAlign(HAlign.Right)))
+            .Cell("42.5M", cell => cell.Align(HAlign.Right))
+            .Cell("2.87T", cell => cell.Align(HAlign.Right))
+            .Cell("28.5", cell => cell.Align(HAlign.Right)))
+        // ... more rows
+        .Row(row => row
+            .Style(s => s.Background("#f8f9fa"))
+            .Cell("MSFT")
+            .Cell("Microsoft Corp.")
+            .Cell("402.12", cell => cell.Align(HAlign.Right))
+            .Cell("+5.67", cell => cell.Style(s => s.TextColor("#27ae60").HAlign(HAlign.Right)))
+            .Cell("+1.43%", cell => cell.Style(s => s.TextColor("#27ae60").HAlign(HAlign.Right)))
+            .Cell("28.3M", cell => cell.Align(HAlign.Right))
+            .Cell("2.99T", cell => cell.Align(HAlign.Right))
+            .Cell("35.2", cell => cell.Align(HAlign.Right))))
+    .Build();
+```
+
 ## Architecture
 
 The library follows a clean architecture with distinct layers:
