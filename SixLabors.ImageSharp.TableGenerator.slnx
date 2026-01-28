@@ -1,0 +1,10 @@
+<Solution>
+  <Configurations>
+    <Platform Name="Any CPU" />
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="SixLabors.ImageSharp.TableGenerator.Examples/SixLabors.ImageSharp.TableGenerator.Examples.csproj" />
+  <Project Path="SixLabors.ImageSharp.TableGenerator.Tests/SixLabors.ImageSharp.TableGenerator.Tests.csproj" />
+  <Project Path="SixLabors.ImageSharp.TableGenerator/SixLabors.ImageSharp.TableGenerator.csproj" />
+</Solution>
