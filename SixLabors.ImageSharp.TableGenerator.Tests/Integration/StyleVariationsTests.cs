@@ -1,7 +1,9 @@
+using BlazorFast.ImageSharp.TableGenerator.Builders;
 using FluentAssertions;
-using SixLabors.ImageSharp.TableGenerator.Builders;
+using SixLabors.ImageSharp;
+using SixLabors.ImageSharp.Formats.Png;
 
-namespace SixLabors.ImageSharp.TableGenerator.Tests.Integration;
+namespace BlazorFast.ImageSharp.TableGenerator.Tests.Integration;
 
 public class StyleVariationsTests
 {

@@ -1,4 +1,4 @@
-namespace SixLabors.ImageSharp.TableGenerator.Models;
+namespace BlazorFast.ImageSharp.TableGenerator.Models;
 
 /// <summary>
 /// Represents a row of cells in a table.

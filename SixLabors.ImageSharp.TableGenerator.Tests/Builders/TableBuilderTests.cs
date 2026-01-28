@@ -1,8 +1,8 @@
+using BlazorFast.ImageSharp.TableGenerator.Builders;
+using BlazorFast.ImageSharp.TableGenerator.Models;
 using SixLabors.ImageSharp;
-using SixLabors.ImageSharp.TableGenerator.Builders;
-using SixLabors.ImageSharp.TableGenerator.Models;
 
-namespace SixLabors.ImageSharp.TableGenerator.Tests.Builders;
+namespace BlazorFast.ImageSharp.TableGenerator.Tests.Builders;
 
 public class TableBuilderTests
 {

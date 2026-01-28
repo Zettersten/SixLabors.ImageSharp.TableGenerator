@@ -2,7 +2,7 @@ using System.Runtime.CompilerServices;
 using SixLabors.Fonts;
 using SixLabors.ImageSharp;
 
-namespace SixLabors.ImageSharp.TableGenerator.Models;
+namespace BlazorFast.ImageSharp.TableGenerator.Models;
 
 /// <summary>
 /// Defines the styling properties for table elements.

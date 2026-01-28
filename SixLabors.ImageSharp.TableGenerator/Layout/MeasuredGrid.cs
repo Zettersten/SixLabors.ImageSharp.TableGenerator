@@ -1,4 +1,4 @@
-namespace SixLabors.ImageSharp.TableGenerator.Layout;
+namespace BlazorFast.ImageSharp.TableGenerator.Layout;
 
 /// <summary>
 /// Contains the computed layout data for a table after measurement.

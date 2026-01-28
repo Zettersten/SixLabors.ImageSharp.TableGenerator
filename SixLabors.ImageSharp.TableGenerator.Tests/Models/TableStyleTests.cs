@@ -1,8 +1,8 @@
+using BlazorFast.ImageSharp.TableGenerator.Models;
 using SixLabors.Fonts;
 using SixLabors.ImageSharp;
-using SixLabors.ImageSharp.TableGenerator.Models;
 
-namespace SixLabors.ImageSharp.TableGenerator.Tests.Models;
+namespace BlazorFast.ImageSharp.TableGenerator.Tests.Models;
 
 public class TableStyleTests
 {

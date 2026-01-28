@@ -1,8 +1,8 @@
+using BlazorFast.ImageSharp.TableGenerator.Layout;
+using BlazorFast.ImageSharp.TableGenerator.Rendering;
 using SixLabors.Fonts;
-using SixLabors.ImageSharp.TableGenerator.Layout;
-using SixLabors.ImageSharp.TableGenerator.Rendering;
 
-namespace SixLabors.ImageSharp.TableGenerator.Tests.Layout;
+namespace BlazorFast.ImageSharp.TableGenerator.Tests.Layout;
 
 public class TextWrapperTests
 {

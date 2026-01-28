@@ -1,6 +1,6 @@
 using SixLabors.Fonts;
 
-namespace SixLabors.ImageSharp.TableGenerator.Layout;
+namespace BlazorFast.ImageSharp.TableGenerator.Layout;
 
 /// <summary>
 /// Utility for wrapping text to fit within specified width constraints.

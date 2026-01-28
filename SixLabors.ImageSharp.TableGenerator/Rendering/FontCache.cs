@@ -2,7 +2,7 @@ using System.Collections.Concurrent;
 using System.Runtime.CompilerServices;
 using SixLabors.Fonts;
 
-namespace SixLabors.ImageSharp.TableGenerator.Rendering;
+namespace BlazorFast.ImageSharp.TableGenerator.Rendering;
 
 /// <summary>
 /// Cache for loaded fonts to avoid repeated file I/O operations.

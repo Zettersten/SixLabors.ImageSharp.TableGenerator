@@ -1,13 +1,13 @@
+using BlazorFast.ImageSharp.TableGenerator.Layout;
+using BlazorFast.ImageSharp.TableGenerator.Models;
+using BlazorFast.ImageSharp.TableGenerator.Rendering;
 using SixLabors.Fonts;
 using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.Drawing.Processing;
 using SixLabors.ImageSharp.PixelFormats;
 using SixLabors.ImageSharp.Processing;
-using SixLabors.ImageSharp.TableGenerator.Layout;
-using SixLabors.ImageSharp.TableGenerator.Models;
-using SixLabors.ImageSharp.TableGenerator.Rendering;
 
-namespace SixLabors.ImageSharp.TableGenerator;
+namespace BlazorFast.ImageSharp.TableGenerator;
 
 /// <summary>
 /// Represents a table that can be rendered to an image.

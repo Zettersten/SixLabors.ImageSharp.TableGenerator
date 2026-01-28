@@ -1,6 +1,6 @@
-using SixLabors.ImageSharp.TableGenerator.Models;
+using BlazorFast.ImageSharp.TableGenerator.Models;
 
-namespace SixLabors.ImageSharp.TableGenerator.Tests.Models;
+namespace BlazorFast.ImageSharp.TableGenerator.Tests.Models;
 
 public class PaddingTests
 {

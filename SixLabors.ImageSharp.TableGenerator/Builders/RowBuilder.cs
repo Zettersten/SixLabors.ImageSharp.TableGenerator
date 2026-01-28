@@ -1,6 +1,6 @@
-using SixLabors.ImageSharp.TableGenerator.Models;
+using BlazorFast.ImageSharp.TableGenerator.Models;
 
-namespace SixLabors.ImageSharp.TableGenerator.Builders;
+namespace BlazorFast.ImageSharp.TableGenerator.Builders;
 
 /// <summary>
 /// Fluent builder for creating table rows.

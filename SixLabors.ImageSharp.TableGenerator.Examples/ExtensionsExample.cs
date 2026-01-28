@@ -1,6 +1,9 @@
-using SixLabors.ImageSharp.TableGenerator.Extensions;
+using BlazorFast.ImageSharp.TableGenerator.Extensions;
+using SixLabors.ImageSharp.Formats.Png;
+using SixLabors.ImageSharp;
 
-namespace SixLabors.ImageSharp.TableGenerator.Examples;
+
+namespace BlazorFast.ImageSharp.TableGenerator.Examples;
 
 public static class ExtensionsExample
 {

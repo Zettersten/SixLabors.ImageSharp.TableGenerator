@@ -1,6 +1,6 @@
 using SixLabors.ImageSharp;
 
-namespace SixLabors.ImageSharp.TableGenerator.Utils;
+namespace BlazorFast.ImageSharp.TableGenerator.Utils;
 
 /// <summary>
 /// Utility for parsing hex color strings.

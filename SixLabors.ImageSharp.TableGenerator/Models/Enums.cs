@@ -1,4 +1,4 @@
-namespace SixLabors.ImageSharp.TableGenerator.Models;
+namespace BlazorFast.ImageSharp.TableGenerator.Models;
 
 /// <summary>
 /// Horizontal alignment options for table cells.

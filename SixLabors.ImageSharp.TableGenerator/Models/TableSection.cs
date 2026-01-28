@@ -1,4 +1,4 @@
-namespace SixLabors.ImageSharp.TableGenerator.Models;
+namespace BlazorFast.ImageSharp.TableGenerator.Models;
 
 /// <summary>
 /// Represents a section of a table (header, body, or footer).

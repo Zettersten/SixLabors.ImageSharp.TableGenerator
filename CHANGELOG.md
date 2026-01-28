@@ -10,7 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.0.0] - 2026-01-27
 
 ### Added
-- Initial release of SixLabors.ImageSharp.TableGenerator
+- Initial release of BlazorFast.ImageSharp.TableGenerator
 - Fluent API for building tables with TableBuilder, StyleBuilder, CellBuilder, RowBuilder
 - Comprehensive styling system with CSS-like cascading (Table → Section → Row → Cell)
 - Support for header, body, and footer sections
@@ -47,5 +47,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - 12 example images demonstrating various styles
 - Code quality documentation
 
-[Unreleased]: https://github.com/YOUR_USERNAME/SixLabors.ImageSharp.TableGenerator/compare/v1.0.0...HEAD
-[1.0.0]: https://github.com/YOUR_USERNAME/SixLabors.ImageSharp.TableGenerator/releases/tag/v1.0.0
+[Unreleased]: https://github.com/YOUR_USERNAME/BlazorFast.ImageSharp.TableGenerator/compare/v1.0.0...HEAD
+[1.0.0]: https://github.com/YOUR_USERNAME/BlazorFast.ImageSharp.TableGenerator/releases/tag/v1.0.0

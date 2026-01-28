@@ -1,7 +1,7 @@
 using System.Reflection;
-using SixLabors.ImageSharp.TableGenerator.Models;
+using BlazorFast.ImageSharp.TableGenerator.Models;
 
-namespace SixLabors.ImageSharp.TableGenerator.Extensions;
+namespace BlazorFast.ImageSharp.TableGenerator.Extensions;
 
 /// <summary>
 /// Configuration options for automatic table generation from collections.

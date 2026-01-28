@@ -1,7 +1,7 @@
-using SixLabors.ImageSharp.TableGenerator.Builders;
-using SixLabors.ImageSharp.TableGenerator.Models;
+using BlazorFast.ImageSharp.TableGenerator.Builders;
+using BlazorFast.ImageSharp.TableGenerator.Models;
 
-namespace SixLabors.ImageSharp.TableGenerator.Tests.Builders;
+namespace BlazorFast.ImageSharp.TableGenerator.Tests.Builders;
 
 public class CellBuilderTests
 {

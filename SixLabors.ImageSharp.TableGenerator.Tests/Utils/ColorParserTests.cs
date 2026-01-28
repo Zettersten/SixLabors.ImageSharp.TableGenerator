@@ -1,8 +1,8 @@
+using BlazorFast.ImageSharp.TableGenerator.Utils;
 using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.PixelFormats;
-using SixLabors.ImageSharp.TableGenerator.Utils;
 
-namespace SixLabors.ImageSharp.TableGenerator.Tests.Utils;
+namespace BlazorFast.ImageSharp.TableGenerator.Tests.Utils;
 
 public class ColorParserTests
 {

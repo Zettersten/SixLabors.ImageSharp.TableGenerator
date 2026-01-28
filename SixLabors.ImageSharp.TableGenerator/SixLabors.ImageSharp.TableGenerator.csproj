@@ -1,19 +1,21 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net10.0</TargetFramework>
+    <AssemblyName>BlazorFast.ImageSharp.TableGenerator</AssemblyName>
+    <RootNamespace>BlazorFast.ImageSharp.TableGenerator</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <NoWarn>$(NoWarn);NU1902</NoWarn>
 
     <!-- NuGet Package Metadata -->
-    <PackageId>SixLabors.ImageSharp.TableGenerator</PackageId>
+    <PackageId>BlazorFast.ImageSharp.TableGenerator</PackageId>
     <Version>1.0.0</Version>
     <Authors>Erik Zettersten</Authors>
     <Company>Erik Zettersten</Company>
     <Description>A powerful table rendering library for SixLabors.ImageSharp that generates beautiful table images with an HTML/CSS-inspired fluent API. Features include rich styling, row/column spans, text wrapping, alternating rows, and high-performance rendering.</Description>
-    <PackageTags>imagesharp;table;rendering;image;generation;chart;report;fluent-api;css;html</PackageTags>
-    <PackageProjectUrl>https://github.com/YOUR_USERNAME/SixLabors.ImageSharp.TableGenerator</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/YOUR_USERNAME/SixLabors.ImageSharp.TableGenerator</RepositoryUrl>
+    <PackageTags>imagesharp;table;rendering;image;generation;chart;report;fluent-api;css;html;blazorfast</PackageTags>
+    <PackageProjectUrl>https://github.com/Zettersten/SixLabors.ImageSharp.TableGenerator</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Zettersten/SixLabors.ImageSharp.TableGenerator</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <PackageReadmeFile>README.md</PackageReadmeFile>
@@ -35,7 +37,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <InternalsVisibleTo Include="SixLabors.ImageSharp.TableGenerator.Tests" />
+    <InternalsVisibleTo Include="BlazorFast.ImageSharp.TableGenerator.Tests" />
   </ItemGroup>
 
   <ItemGroup>

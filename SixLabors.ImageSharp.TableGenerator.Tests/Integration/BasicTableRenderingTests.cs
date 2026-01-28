@@ -1,10 +1,10 @@
+using BlazorFast.ImageSharp.TableGenerator;
+using BlazorFast.ImageSharp.TableGenerator.Builders;
+using BlazorFast.ImageSharp.TableGenerator.Models;
 using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.PixelFormats;
-using SixLabors.ImageSharp.TableGenerator;
-using SixLabors.ImageSharp.TableGenerator.Builders;
-using SixLabors.ImageSharp.TableGenerator.Models;
 
-namespace SixLabors.ImageSharp.TableGenerator.Tests.Integration;
+namespace BlazorFast.ImageSharp.TableGenerator.Tests.Integration;
 
 public class BasicTableRenderingTests
 {

@@ -1,8 +1,8 @@
+using BlazorFast.ImageSharp.TableGenerator.Models;
+using BlazorFast.ImageSharp.TableGenerator.Rendering;
 using SixLabors.Fonts;
-using SixLabors.ImageSharp.TableGenerator.Models;
-using SixLabors.ImageSharp.TableGenerator.Rendering;
 
-namespace SixLabors.ImageSharp.TableGenerator.Layout;
+namespace BlazorFast.ImageSharp.TableGenerator.Layout;
 
 /// <summary>
 /// Engine for calculating table layout and measurements.

@@ -1,9 +1,9 @@
+using BlazorFast.ImageSharp.TableGenerator.Models;
+using BlazorFast.ImageSharp.TableGenerator.Utils;
 using SixLabors.Fonts;
 using SixLabors.ImageSharp;
-using SixLabors.ImageSharp.TableGenerator.Models;
-using SixLabors.ImageSharp.TableGenerator.Utils;
 
-namespace SixLabors.ImageSharp.TableGenerator.Builders;
+namespace BlazorFast.ImageSharp.TableGenerator.Builders;
 
 /// <summary>
 /// Fluent builder for creating table styles.

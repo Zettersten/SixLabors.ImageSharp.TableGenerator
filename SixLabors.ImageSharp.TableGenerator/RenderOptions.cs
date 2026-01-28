@@ -1,7 +1,7 @@
+using BlazorFast.ImageSharp.TableGenerator.Models;
 using SixLabors.ImageSharp;
-using SixLabors.ImageSharp.TableGenerator.Models;
 
-namespace SixLabors.ImageSharp.TableGenerator;
+namespace BlazorFast.ImageSharp.TableGenerator;
 
 /// <summary>
 /// Options for configuring table rendering.

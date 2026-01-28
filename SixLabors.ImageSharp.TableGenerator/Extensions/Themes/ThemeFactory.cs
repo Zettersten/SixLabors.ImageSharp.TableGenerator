@@ -1,4 +1,6 @@
-namespace SixLabors.ImageSharp.TableGenerator.Extensions.Themes;
+using SixLabors.ImageSharp;
+
+namespace BlazorFast.ImageSharp.TableGenerator.Extensions.Themes;
 
 /// <summary>
 /// Factory for creating table themes.

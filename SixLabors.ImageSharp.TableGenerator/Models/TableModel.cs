@@ -1,4 +1,4 @@
-namespace SixLabors.ImageSharp.TableGenerator.Models;
+namespace BlazorFast.ImageSharp.TableGenerator.Models;
 
 /// <summary>
 /// Represents the complete table model with all sections and configuration.

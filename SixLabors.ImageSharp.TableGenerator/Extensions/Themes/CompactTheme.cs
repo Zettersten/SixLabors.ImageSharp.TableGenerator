@@ -1,7 +1,8 @@
+using BlazorFast.ImageSharp.TableGenerator.Models;
 using SixLabors.Fonts;
-using SixLabors.ImageSharp.TableGenerator.Models;
+using SixLabors.ImageSharp;
 
-namespace SixLabors.ImageSharp.TableGenerator.Extensions.Themes;
+namespace BlazorFast.ImageSharp.TableGenerator.Extensions.Themes;
 
 /// <summary>
 /// Compact theme with reduced padding and smaller font.

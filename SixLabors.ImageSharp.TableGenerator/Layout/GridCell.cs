@@ -1,6 +1,6 @@
-using SixLabors.ImageSharp.TableGenerator.Models;
+using BlazorFast.ImageSharp.TableGenerator.Models;
 
-namespace SixLabors.ImageSharp.TableGenerator.Layout;
+namespace BlazorFast.ImageSharp.TableGenerator.Layout;
 
 /// <summary>
 /// Internal struct for tracking cell positions and spans in the table grid.

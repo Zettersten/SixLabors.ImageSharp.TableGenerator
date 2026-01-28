@@ -1,6 +1,6 @@
 # NuGet Publishing Guide
 
-This document explains how to publish `SixLabors.ImageSharp.TableGenerator` to NuGet.org.
+This document explains how to publish `BlazorFast.ImageSharp.TableGenerator` to NuGet.org.
 
 ## Prerequisites
 
@@ -18,7 +18,7 @@ Before publishing, test the package locally:
 dotnet pack --configuration Release --output ./artifacts
 
 # Inspect package contents
-unzip -l ./artifacts/SixLabors.ImageSharp.TableGenerator.1.0.0.nupkg
+unzip -l ./artifacts/BlazorFast.ImageSharp.TableGenerator.1.0.0.nupkg
 
 # Test locally by adding the artifacts folder as a NuGet source
 dotnet nuget add source ./artifacts --name local-test
@@ -26,7 +26,7 @@ dotnet nuget add source ./artifacts --name local-test
 # Create a test project and install
 dotnet new console -n TestPackage
 cd TestPackage
-dotnet add package SixLabors.ImageSharp.TableGenerator --version 1.0.0 --source local-test
+dotnet add package BlazorFast.ImageSharp.TableGenerator --version 1.0.0 --source local-test
 ```
 
 ## Publishing Steps
@@ -38,7 +38,7 @@ dotnet add package SixLabors.ImageSharp.TableGenerator --version 1.0.0 --source 
 dotnet pack --configuration Release --output ./artifacts
 
 # Push to NuGet.org (replace YOUR_API_KEY)
-dotnet nuget push ./artifacts/SixLabors.ImageSharp.TableGenerator.1.0.0.nupkg \
+dotnet nuget push ./artifacts/BlazorFast.ImageSharp.TableGenerator.1.0.0.nupkg \
   --api-key YOUR_API_KEY \
   --source https://api.nuget.org/v3/index.json
 ```
@@ -47,7 +47,7 @@ dotnet nuget push ./artifacts/SixLabors.ImageSharp.TableGenerator.1.0.0.nupkg \
 
 The repository includes automated release workflows. To publish:
 
-1. **Update version** in `SixLabors.ImageSharp.TableGenerator.csproj`:
+1. **Update version** in `BlazorFast.ImageSharp.TableGenerator.csproj`:
    ```xml
    <Version>1.0.0</Version>
    ```
@@ -88,13 +88,13 @@ Add the following secret to your GitHub repository:
 
 After publishing:
 
-1. **Verify on NuGet.org**: Check that the package appears at `https://www.nuget.org/packages/SixLabors.ImageSharp.TableGenerator`
+1. **Verify on NuGet.org**: Check that the package appears at `https://www.nuget.org/packages/BlazorFast.ImageSharp.TableGenerator`
 2. **Test installation**: Try installing in a fresh project:
    ```bash
-   dotnet add package SixLabors.ImageSharp.TableGenerator
+   dotnet add package BlazorFast.ImageSharp.TableGenerator
    ```
 3. **Update repository URLs**: Replace `YOUR_USERNAME` placeholders in:
-   - `SixLabors.ImageSharp.TableGenerator.csproj`
+   - `BlazorFast.ImageSharp.TableGenerator.csproj`
    - `CHANGELOG.md`
    - `README.md`
 
@@ -107,7 +107,7 @@ This project follows [Semantic Versioning](https://semver.org/):
 - **PATCH** (x.x.1): Bug fixes, backward compatible
 
 Update version in:
-1. `SixLabors.ImageSharp.TableGenerator.csproj` → `<Version>` property
+1. `BlazorFast.ImageSharp.TableGenerator.csproj` → `<Version>` property
 2. `CHANGELOG.md` → Add new version section
 3. Git tag → `vX.Y.Z`
 
@@ -115,8 +115,8 @@ Update version in:
 
 Before publishing, verify the package includes:
 
-- ✅ DLL: `SixLabors.ImageSharp.TableGenerator.dll`
-- ✅ XML docs: `SixLabors.ImageSharp.TableGenerator.xml`
+- ✅ DLL: `BlazorFast.ImageSharp.TableGenerator.dll`
+- ✅ XML docs: `BlazorFast.ImageSharp.TableGenerator.xml`
 - ✅ README: `README.md`
 - ✅ Icon: `icon.png`
 - ✅ Symbol package: `.snupkg` for debugging

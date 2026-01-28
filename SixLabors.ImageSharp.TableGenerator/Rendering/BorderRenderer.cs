@@ -3,7 +3,7 @@ using SixLabors.ImageSharp.Drawing.Processing;
 using SixLabors.ImageSharp.PixelFormats;
 using SixLabors.ImageSharp.Processing;
 
-namespace SixLabors.ImageSharp.TableGenerator.Rendering;
+namespace BlazorFast.ImageSharp.TableGenerator.Rendering;
 
 /// <summary>
 /// Helper for rendering table borders.

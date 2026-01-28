@@ -1,7 +1,10 @@
-using SixLabors.ImageSharp.TableGenerator.Builders;
-using SixLabors.ImageSharp.TableGenerator.Models;
+using BlazorFast.ImageSharp.TableGenerator.Builders;
+using BlazorFast.ImageSharp.TableGenerator.Models;
+using SixLabors.ImageSharp.Formats.Png;
+using SixLabors.ImageSharp;
 
-namespace SixLabors.ImageSharp.TableGenerator.Examples;
+
+namespace BlazorFast.ImageSharp.TableGenerator.Examples;
 
 public static class LargeDataExample
 {

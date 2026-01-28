@@ -1,6 +1,6 @@
-# SixLabors.ImageSharp.TableGenerator
+# BlazorFast.ImageSharp.TableGenerator
 
-[![NuGet](https://img.shields.io/nuget/v/SixLabors.ImageSharp.TableGenerator.svg)](https://www.nuget.org/packages/SixLabors.ImageSharp.TableGenerator/)
+[![NuGet](https://img.shields.io/nuget/v/BlazorFast.ImageSharp.TableGenerator.svg)](https://www.nuget.org/packages/BlazorFast.ImageSharp.TableGenerator/)
 [![License: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
 [![.NET](https://img.shields.io/badge/.NET-10.0-purple.svg)](https://dotnet.microsoft.com/)
 
@@ -19,7 +19,7 @@ A powerful table rendering library for **SixLabors.ImageSharp** that generates b
 ## 📦 Installation
 
 ```bash
-dotnet add package SixLabors.ImageSharp.TableGenerator
+dotnet add package BlazorFast.ImageSharp.TableGenerator
 ```
 
 ## 🚀 Quick Start
@@ -27,8 +27,9 @@ dotnet add package SixLabors.ImageSharp.TableGenerator
 ### Builder API
 
 ```csharp
-using SixLabors.ImageSharp.TableGenerator;
-using SixLabors.ImageSharp.TableGenerator.Builders;
+using BlazorFast.ImageSharp.TableGenerator;
+
+using BlazorFast.ImageSharp.TableGenerator.Builders;
 
 var table = TableBuilder.Create()
     .Body(body => body
@@ -46,7 +47,7 @@ image.SaveAsPng("table.png");
 ### Extension Method (Fastest)
 
 ```csharp
-using SixLabors.ImageSharp.TableGenerator.Extensions;
+using BlazorFast.ImageSharp.TableGenerator.Extensions;
 
 public record Person(string Name, int Age, string City);
 

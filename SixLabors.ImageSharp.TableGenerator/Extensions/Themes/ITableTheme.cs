@@ -1,6 +1,7 @@
-using SixLabors.ImageSharp.TableGenerator.Models;
+using BlazorFast.ImageSharp.TableGenerator.Models;
+using SixLabors.ImageSharp;
 
-namespace SixLabors.ImageSharp.TableGenerator.Extensions.Themes;
+namespace BlazorFast.ImageSharp.TableGenerator.Extensions.Themes;
 
 /// <summary>
 /// Defines a visual theme for table rendering.

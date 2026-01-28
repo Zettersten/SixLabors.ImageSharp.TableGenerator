@@ -1,6 +1,6 @@
 using System.Runtime.CompilerServices;
 
-namespace SixLabors.ImageSharp.TableGenerator.Models;
+namespace BlazorFast.ImageSharp.TableGenerator.Models;
 
 /// <summary>
 /// Represents padding values for all sides of a cell.

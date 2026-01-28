@@ -2,7 +2,7 @@ using System.Collections.Concurrent;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 
-namespace SixLabors.ImageSharp.TableGenerator.Extensions;
+namespace BlazorFast.ImageSharp.TableGenerator.Extensions;
 
 /// <summary>
 /// Provides cached property reflection for table generation.
