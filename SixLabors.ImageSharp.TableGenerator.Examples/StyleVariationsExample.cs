@@ -1,8 +1,7 @@
 using BlazorFast.ImageSharp.TableGenerator.Builders;
 using BlazorFast.ImageSharp.TableGenerator.Models;
-using SixLabors.ImageSharp.Formats.Png;
 using SixLabors.ImageSharp;
-
+using SixLabors.ImageSharp.Formats.Png;
 
 namespace BlazorFast.ImageSharp.TableGenerator.Examples;
 

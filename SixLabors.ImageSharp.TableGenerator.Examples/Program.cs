@@ -4,7 +4,6 @@ using BlazorFast.ImageSharp.TableGenerator.Models;
 using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.Formats.Png;
 
-
 namespace BlazorFast.ImageSharp.TableGenerator.Examples;
 
 class Program
