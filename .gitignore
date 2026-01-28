@@ -755,3 +755,7 @@ $RECYCLE.BIN/
 .directory
 .Trash-*
 .nfs*
+
+# Project-specific
+output/
+test-output/
