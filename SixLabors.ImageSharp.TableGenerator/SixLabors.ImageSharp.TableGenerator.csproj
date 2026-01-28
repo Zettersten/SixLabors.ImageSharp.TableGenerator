@@ -9,7 +9,7 @@
 
     <!-- NuGet Package Metadata -->
     <PackageId>BlazorFast.ImageSharp.TableGenerator</PackageId>
-    <Version>1.0.1</Version>
+    <Version>1.0.2</Version>
     <Authors>Erik Zettersten</Authors>
     <Company>Erik Zettersten</Company>
     <Description>A powerful table rendering library for SixLabors.ImageSharp that generates beautiful table images with an HTML/CSS-inspired fluent API. Features include rich styling, row/column spans, text wrapping, alternating rows, and high-performance rendering.</Description>
