@@ -320,7 +320,23 @@ The library follows a clean layered architecture:
 
 ## 📄 License
 
-Apache License 2.0
+This project is licensed under the **Apache License 2.0** - see the [LICENSE](LICENSE) file for details.
+
+### Third-Party Licenses
+
+This library depends on the following third-party packages, each with their own licenses:
+
+- **[SixLabors.ImageSharp](https://github.com/SixLabors/ImageSharp)** - Licensed under the [Six Labors Split License](https://github.com/SixLabors/ImageSharp/blob/main/LICENSE)
+  - **Free for non-commercial use** and small/medium commercial use
+  - Commercial license required for large commercial applications
+  - See their licensing page for details: https://sixlabors.com/pricing/
+
+- **[SixLabors.ImageSharp.Drawing](https://github.com/SixLabors/ImageSharp.Drawing)** - Licensed under the [Six Labors Split License](https://github.com/SixLabors/ImageSharp.Drawing/blob/main/LICENSE)
+  - Same licensing terms as ImageSharp above
+
+- **[SixLabors.Fonts](https://github.com/SixLabors/Fonts)** - Licensed under the [Apache License 2.0](https://github.com/SixLabors/Fonts/blob/main/LICENSE)
+
+**Important:** While `BlazorFast.ImageSharp.TableGenerator` itself is Apache 2.0 licensed, your use of this library requires compliance with the SixLabors ImageSharp licensing terms. Please review the [SixLabors licensing page](https://sixlabors.com/pricing/) to determine if you need a commercial license for your use case.
 
 ## 🤝 Contributing
 
