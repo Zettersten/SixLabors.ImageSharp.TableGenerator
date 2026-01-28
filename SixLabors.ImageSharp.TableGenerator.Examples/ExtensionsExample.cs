@@ -8,7 +8,7 @@ public static class ExtensionsExample
 {
     public record Person(string Name, int Age, string City);
 
-    public static void Run()
+    public static void Run(string outputDir)
     {
         var people = new[]
         {
@@ -21,26 +21,26 @@ public static class ExtensionsExample
 
         // Example 1: Default light theme
         var lightTable = people.ToTableImage();
-        lightTable.Save("output/extension-light-theme.png");
+        lightTable.Save(Path.Combine(outputDir, "extension-light-theme.png"));
         Console.WriteLine("Created: extension-light-theme.png");
 
         // Example 2: Dark theme
         var darkTable = people.ToTableImage(new TableGeneratorOptions { Theme = ThemeMode.Dark });
-        darkTable.Save("output/extension-dark-theme.png");
+        darkTable.Save(Path.Combine(outputDir, "extension-dark-theme.png"));
         Console.WriteLine("Created: extension-dark-theme.png");
 
         // Example 3: Minimal theme
         var minimalTable = people.ToTableImage(
             new TableGeneratorOptions { Theme = ThemeMode.Minimal }
         );
-        minimalTable.Save("output/extension-minimal-theme.png");
+        minimalTable.Save(Path.Combine(outputDir, "extension-minimal-theme.png"));
         Console.WriteLine("Created: extension-minimal-theme.png");
 
         // Example 4: Compact theme
         var compactTable = people.ToTableImage(
             new TableGeneratorOptions { Theme = ThemeMode.Compact }
         );
-        compactTable.Save("output/extension-compact-theme.png");
+        compactTable.Save(Path.Combine(outputDir, "extension-compact-theme.png"));
         Console.WriteLine("Created: extension-compact-theme.png");
 
         // Example 5: Custom property filtering
@@ -50,7 +50,7 @@ public static class ExtensionsExample
                 PropertyFilter = prop => prop.Name != "City", // Exclude City column
             }
         );
-        filteredTable.Save("output/extension-filtered-properties.png");
+        filteredTable.Save(Path.Combine(outputDir, "extension-filtered-properties.png"));
         Console.WriteLine("Created: extension-filtered-properties.png");
 
         // Example 6: Custom formatters
@@ -62,21 +62,21 @@ public static class ExtensionsExample
                 ValueFormatter = val => val?.ToString()?.ToUpper() ?? "N/A",
             }
         );
-        formattedTable.Save("output/extension-custom-formatters.png");
+        formattedTable.Save(Path.Combine(outputDir, "extension-custom-formatters.png"));
         Console.WriteLine("Created: extension-custom-formatters.png");
 
         // Example 7: Property ordering
         var orderedTable = people.ToTableImage(
             new TableGeneratorOptions { PropertyOrder = new[] { "City", "Name", "Age" } }
         );
-        orderedTable.Save("output/extension-property-order.png");
+        orderedTable.Save(Path.Combine(outputDir, "extension-property-order.png"));
         Console.WriteLine("Created: extension-property-order.png");
 
         // Example 8: No headers
         var noHeadersTable = people.ToTableImage(
             new TableGeneratorOptions { IncludeHeaders = false }
         );
-        noHeadersTable.Save("output/extension-no-headers.png");
+        noHeadersTable.Save(Path.Combine(outputDir, "extension-no-headers.png"));
         Console.WriteLine("Created: extension-no-headers.png");
     }
 }

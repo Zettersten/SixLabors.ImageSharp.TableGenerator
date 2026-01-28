@@ -13,8 +13,9 @@ class Program
         Console.WriteLine("SixLabors.ImageSharp.TableGenerator Examples");
         Console.WriteLine("============================================");
 
-        // Ensure output directory exists
-        var outputDir = Path.Combine(Directory.GetCurrentDirectory(), "output");
+        // Ensure output directory exists in the Examples project folder
+        var examplesDir = AppContext.BaseDirectory;
+        var outputDir = Path.Combine(examplesDir, "output");
         Directory.CreateDirectory(outputDir);
 
         try
@@ -49,7 +50,7 @@ class Program
 
             // Example 8: Extensions API
             Console.WriteLine("\n8. Extensions API (ToTable/ToTableImage)...");
-            ExtensionsExample.Run();
+            ExtensionsExample.Run(outputDir);
 
             Console.WriteLine(
                 $"\nAll examples completed! Check the {outputDir} directory for generated images."
