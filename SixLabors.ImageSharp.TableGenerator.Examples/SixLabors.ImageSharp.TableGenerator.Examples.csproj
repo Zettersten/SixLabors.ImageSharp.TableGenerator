@@ -5,6 +5,7 @@
     <AssemblyName>BlazorFast.ImageSharp.TableGenerator.Examples</AssemblyName>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <IsPackable>false</IsPackable>
     <NoWarn>$(NoWarn);NU1902</NoWarn>
   </PropertyGroup>
 
